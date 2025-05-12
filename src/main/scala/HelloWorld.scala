@@ -4,4 +4,3 @@ object HelloWorld {
 
 
 }
-ga
