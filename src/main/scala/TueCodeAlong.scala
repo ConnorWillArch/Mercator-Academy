@@ -95,8 +95,7 @@ object TueCodeAlong extends App {
   println("flat mapped to characters " + flatMapNames)
 
 
-
-  val toAdd: Seq[Int] = Seq(1,1,1)
+  val toAdd: Seq[Int] = Seq(1, 1, 1)
 
   val addedToEnd = firstSeq :+ toAdd
   val addedToEndNew: Seq[Int] = firstSeq ++ toAdd
@@ -110,5 +109,89 @@ object TueCodeAlong extends App {
   println("Prepend with +: " + addedToStart)
   println("Prepend with ++ " + addedToStartNew)
 
-  println(addedToStart.flatMap(_+"1"))
+  println(addedToStart)
+
+
+  //EXERCISES
+
+  //1.
+  val submissions: Seq[String] = Seq("Alice", "Bob", "Alice", "Charlie", "Bob", "David", "Alice")
+
+  //2.
+  println(s"All submissions: ${submissions.mkString(", ")}")
+
+  //3.
+  def countSubmissions(taxpayers: Seq[String], name: String): Int = {
+    taxpayers.count(_ == name)
+  }
+
+
+  //4.
+  val nameToBeChecked: String = "Bob"
+  println(s"Number of Submissions for $nameToBeChecked: " + countSubmissions(submissions, nameToBeChecked))
+
+  //5.
+  val uniqueTaxPayers: Set[String] = submissions.toSet
+
+  //6.
+  println(s"Unique submissions: ${uniqueTaxPayers.mkString(", ")}")
+
+  //7.
+  def countSubmissionsUniversal[T](collection: Iterable[T], itemToCount: T): Int = {
+    collection.count(_ == itemToCount)
+  }
+
+  //8.
+  val nameToBeCheckedNew: String = "Alice"
+  println(s"Number of Submissions for $nameToBeCheckedNew: " + countSubmissionsUniversal(submissions, nameToBeCheckedNew))
+  println(s"Number of Submissions for $nameToBeCheckedNew: " + countSubmissionsUniversal(uniqueTaxPayers, nameToBeCheckedNew))
+
+  //9.
+
+  //a.
+  val failed: Map[String, Int] = Map(
+    "Alice" -> 1,
+    "Bob" -> 2,
+    "Charlie" -> 0,
+    "David" -> 4,
+    "Ben" -> 6
+  )
+
+  //b.
+  val user0: String = failed.keys.toSeq.head
+  println(s"User at index 0 $user0 number of failed attempts ${failed(user0)}")
+
+  //c.
+  val withGrace: Map[String, Int] = failed + ("Grace" -> 3)
+  println(s"Map with Grace $withGrace")
+
+
+  //d.
+  val user1: String = withGrace.keys.toSeq(1)
+  val updated1: Map[String, Int] = withGrace.updated(user1, withGrace(user1) + 1)
+  println(s"Map with first update $updated1")
+
+  //e.
+  val user5: String = updated1.keys.toSeq(5)
+  val updated2: Map[String, Int] = updated1 - user5
+  println(s"Map with second update $updated2")
+
+
+  // EXTENSION
+  val dayOneSet: Set[String] = Set("Alice", "Bob", "Charlie", "David")
+  val dayOTwoSet: Set[String] = Set("Alice", "Bob", "Charlie", "Eve", "Frank")
+
+  //a.
+  val bothDays: Set[String] = dayOneSet intersect dayOTwoSet
+  println(s"Submitted on both days ${bothDays.mkString(", ")}")
+
+  //b.
+  val day1: Set[String] = dayOneSet diff dayOTwoSet
+  val day2: Set[String] = dayOTwoSet diff dayOneSet
+  println(s"Submitted only on first day ${day1.mkString(", ")}")
+  println(s"Submitted only on second day ${day2.mkString(", ")}")
+
+  //c.
+  val allUnique: Set[String] = dayOneSet union dayOTwoSet
+  println(s"All unique submissions ${allUnique.mkString(", ")}")
 }
