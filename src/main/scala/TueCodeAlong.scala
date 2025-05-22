@@ -182,7 +182,7 @@ object TueCodeAlong extends App {
   val dayOTwoSet: Set[String] = Set("Alice", "Bob", "Charlie", "Eve", "Frank")
 
   //a.
-  val bothDays: Set[String] = dayOneSet intersect dayOTwoSet
+  val bothDays: Set[String] = dayOneSet.intersect(dayOTwoSet)
   println(s"Submitted on both days ${bothDays.mkString(", ")}")
 
   //b.
