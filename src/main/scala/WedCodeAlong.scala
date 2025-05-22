@@ -139,28 +139,29 @@ object WedCodeAlong extends App {
     println(message)
 
     val maxCarry: Int = if (hasBag) 5 else 3
-    if(numberOfMelons <= maxCarry){
+    if (numberOfMelons <= maxCarry) {
       println(s"Yes you can buy $numberOfMelons watermelons")
     }
-    else{
+    else {
       println(s"No you can't buy $numberOfMelons watermelons")
     }
 
   }
 
   //2.
-  def calculatePay(input: String): String={
+  def calculatePay(input: String): String = {
     try {
       val miles: Double = input.toDouble
-      if(miles < 0){
+      if (miles < 0) {
         throw new Exception(s"$miles")
       }
-      val pay:Double = miles * 0.45
+      val pay: Double = miles * 0.45
       s"for $miles you get payed £$pay"
-    } catch{
+    } catch {
       case e: Exception => s"$e is not a valid input please use a number above 0"
     }
   }
+
   println(calculatePay("14"))
   println(calculatePay("ten"))
 
@@ -175,22 +176,22 @@ object WedCodeAlong extends App {
 
   //3.
   val test2: Boolean = ((true || false) && false) //FALSE
-  println("Test2: " + test1)
+  println("Test2: " + test2)
 
   //4.
   val test3: Boolean = (1 < 4 && 7 != 10 || 9 + 10 == 21) //TRUE
-  println("Test3: " + test1)
+  println("Test3: " + test3)
 
 
   //RESEARCH
 
   //1.
-  val first: Int = 2
+  val first: Int = 8
   val second: Int = 3
 
   //2.
   val answer: String =
-    if(first > second) "yes"
+    if (first > second) "yes"
     else "no"
 
   println(s"First > Second: $answer")
