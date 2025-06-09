@@ -26,9 +26,12 @@ object TaskOne extends App {
 
   val fullLink: WebElement = driver.findElement(By.linkText("Return to index"))
   fullLink.click()
+
   println(driver.getTitle)
+
   driver.navigate().back()
   println(driver.getTitle)
+
   val partialLink: WebElement = driver.findElement(By.partialLinkText("Return"))
   partialLink.click()
 
