@@ -11,7 +11,7 @@ object Task extends App {
 
   val driver: WebDriver = new ChromeDriver
   driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html")
-driver.manage().window().maximize()
+  driver.manage().window().maximize()
 
 
   val nameSelectorField: WebElement = driver.findElement(By.name("username"))
@@ -36,8 +36,6 @@ driver.manage().window().maximize()
 
   xPathSelectorField2.click()
   println("Checkbox field clicked")
-
-
 
 
   partialLinkSelectorLink.click()
