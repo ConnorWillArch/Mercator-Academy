@@ -34,7 +34,7 @@ object Extension extends App {
   }
 
   def currentLastNames(): Seq[String] = {
-    driver.findElements(By.cssSelector("#table1 > body > tr > td:nth-child(1)")).asScala.map(_.getText.trim).toSeq
+    driver.findElements(By.cssSelector("#table1 > tbody > tr > td:nth-child(1)")).asScala.map(_.getText.trim).toSeq
 
 
   }
